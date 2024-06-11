@@ -1,0 +1,4 @@
+﻿  二叉链表.cpp
+C:\Users\gyy123\Desktop\数据结构\二叉链表.cpp(123,6): error C2228: “.next”的左边必须有类/结构/联合
+C:\Users\gyy123\Desktop\数据结构\二叉链表.cpp(123,6): message : 类型是“seqStack *”
+C:\Users\gyy123\Desktop\数据结构\二叉链表.cpp(123,6): message : 是否改用“->”?
