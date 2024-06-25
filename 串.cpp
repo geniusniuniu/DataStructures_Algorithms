@@ -8,23 +8,23 @@
 
 typedef struct
 {
-	char s[MAXSIZE]; //µÚ0¸öÎ»ÖÃ²»Ê¹ÓÃ
-	int len; 		   //×Ö·û´®³¤¶È 
+	char s[MAXSIZE]; //ç¬¬0ä¸ªä½ç½®ä¸ä½¿ç”¨
+	int len; 		   //å­—ç¬¦ä¸²é•¿åº¦ 
 }SString; 
 
-//´®²åÈëº¯Êı
+//ä¸²æ’å…¥å‡½æ•°
 int SStringInsert(SString* src, SString* insertStr, int pos)
 {
-    if (pos < 1 || pos >= src->len) //ÅĞ¶Ï²åÈëÎ»ÖÃºÏ·¨
+    if (pos < 1 || pos >= src->len) //åˆ¤æ–­æ’å…¥ä½ç½®åˆæ³•
         return -1;
     if (src->len + insertStr->len <= MAXSIZE)
     {
-        //ÏÈ°Ñsrc´®ÖĞÔÚposÖ®ºóµÄÔªËØÒÆµ½ºóÃæ
+        //å…ˆæŠŠsrcä¸²ä¸­åœ¨posä¹‹åçš„å…ƒç´ ç§»åˆ°åé¢
         for (int i = src->len + insertStr->len; i >= pos; i--)
         {
             src->s[i] = src->s[i - insertStr->len];
         }
-        //°ÑÒª²åÈëµÄ´®·Åµ½Ö¸¶¨Î»ÖÃ
+        //æŠŠè¦æ’å…¥çš„ä¸²æ”¾åˆ°æŒ‡å®šä½ç½®
         for (int i = pos; i < pos + insertStr->len; i++)
         {
             src->s[i] = insertStr->s[i - pos];
@@ -32,14 +32,14 @@ int SStringInsert(SString* src, SString* insertStr, int pos)
         src->len = src->len + insertStr->len;
         return TRUE;
     }
-    else if(pos + insertStr->len <= MAXSIZE)	//src´®ÖĞºó°ë²¿·Ö±»ÉáÆú 
+    else if(pos + insertStr->len <= MAXSIZE)	//srcä¸²ä¸­ååŠéƒ¨åˆ†è¢«èˆå¼ƒ 
     {
-    	//ÏÈ°Ñsrc´®ÖĞÔÚposÖ®ºóµÄÔªËØÒÆµ½ºóÃæ
+    	//å…ˆæŠŠsrcä¸²ä¸­åœ¨posä¹‹åçš„å…ƒç´ ç§»åˆ°åé¢
         for (int i = MAXSIZE; i >= pos; i--)
         {
             src->s[i] = src->s[i - insertStr->len];
         }
-        //°ÑÒª²åÈëµÄ´®·Åµ½Ö¸¶¨Î»ÖÃ
+        //æŠŠè¦æ’å…¥çš„ä¸²æ”¾åˆ°æŒ‡å®šä½ç½®
         for (int i = pos; i < pos + insertStr->len; i++)
         {
             src->s[i] = insertStr->s[i - pos];
@@ -47,7 +47,7 @@ int SStringInsert(SString* src, SString* insertStr, int pos)
         	src->len = MAXSIZE;
         return TRUE;
 	}
-	else //insertStrÖĞÔªËØ²¿·Ö±»ÉáÆú 
+	else //insertSträ¸­å…ƒç´ éƒ¨åˆ†è¢«èˆå¼ƒ 
 	{
 		for (int i = pos; i <= MAXSIZE; i++)
         {
@@ -82,7 +82,7 @@ int SStrCat(SString* src, SString* catStr)
 	else
 		return FALSE; 
 }
-//Çó×Ó´®º¯Êı
+//æ±‚å­ä¸²å‡½æ•°
 int GetSubString(SString* src,SString* subStr,int pos,int len)
 {
 	if(pos<1 || pos>src->len || len<0 || len > src->len-pos)
@@ -95,7 +95,7 @@ int GetSubString(SString* src,SString* subStr,int pos,int len)
 	return TRUE;
 }
 
-//´®É¾³ıº¯Êı
+//ä¸²åˆ é™¤å‡½æ•°
 int SStrDelete(SString* src, int pos,int len) 
 {
 	if(pos<1 || pos>src->len || len<0 || len > src->len-pos)
